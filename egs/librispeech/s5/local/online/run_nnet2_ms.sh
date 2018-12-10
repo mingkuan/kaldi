@@ -63,7 +63,7 @@ if [ $stage -le 7 ]; then
   # this is because we want it to be small enough that we could plausibly run it
   # in real-time.
   steps/nnet2/train_multisplice_accel2.sh --stage $train_stage \
-    --num-epochs 8 --num-jobs-initial 3 --num-jobs-final 18 \
+    --num-epochs 8 --num-jobs-initial 4 --num-jobs-final 4 \
     --num-hidden-layers 6 --splice-indexes "layer0/-2:-1:0:1:2 layer1/-1:2 layer3/-3:3 layer4/-7:2" \
     --feat-type raw \
     --online-ivector-dir exp/nnet2_online/ivectors_train_960_hires \

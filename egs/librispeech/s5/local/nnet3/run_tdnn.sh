@@ -86,8 +86,8 @@ if [ $stage -le 12 ]; then
     --feat.online-ivector-dir $train_ivector_dir \
     --feat.cmvn-opts="--norm-means=false --norm-vars=false" \
     --trainer.num-epochs 4 \
-    --trainer.optimization.num-jobs-initial 3 \
-    --trainer.optimization.num-jobs-final 16 \
+    --trainer.optimization.num-jobs-initial 4 \
+    --trainer.optimization.num-jobs-final 4 \
     --trainer.optimization.initial-effective-lrate 0.0017 \
     --trainer.optimization.final-effective-lrate 0.00017 \
     --egs.dir "$common_egs_dir" \
