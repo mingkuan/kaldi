@@ -27,11 +27,13 @@ set -euo pipefail
 
 # Path where AMI gets downloaded (or where locally available):
 AMI_DIR=$PWD/wav_db # Default,
-case $(hostname -d) in
-  fit.vutbr.cz) AMI_DIR=/mnt/matylda5/iveselyk/KALDI_AMI_WAV ;; # BUT,
-  clsp.jhu.edu) AMI_DIR=/export/corpora4/ami/amicorpus ;; # JHU,
-  cstr.ed.ac.uk) AMI_DIR= ;; # Edinburgh,
-esac
+
+#
+#case $(hostname -d) in
+#  fit.vutbr.cz) AMI_DIR=/mnt/matylda5/iveselyk/KALDI_AMI_WAV ;; # BUT,
+#  clsp.jhu.edu) AMI_DIR=/export/corpora4/ami/amicorpus ;; # JHU,
+#  cstr.ed.ac.uk) AMI_DIR= ;; # Edinburgh,
+#esac
 
 [ ! -r data/local/lm/final_lm ] && echo "Please, run 'run_prepare_shared.sh' first!" && exit 1
 final_lm=`cat data/local/lm/final_lm`
@@ -39,15 +41,15 @@ LM=$final_lm.pr1-7
 
 # Download AMI corpus, You need around 130GB of free space to get whole data ihm+mdm,
 if [ $stage -le 0 ]; then
-  if [ -d $AMI_DIR ] && ! touch $AMI_DIR/.foo 2>/dev/null; then
-    echo "$0: directory $AMI_DIR seems to exist and not be owned by you."
-    echo " ... Assuming the data does not need to be downloaded.  Please use --stage 1 or more."
-    exit 1
-  fi
-  if [ -e data/local/downloads/wget_$mic.sh ]; then
-    echo "data/local/downloads/wget_$mic.sh already exists, better quit than re-download... (use --stage N)"
-    exit 1
-  fi
+#  if [ -d $AMI_DIR ] && ! touch $AMI_DIR/.foo 2>/dev/null; then
+#    echo "$0: directory $AMI_DIR seems to exist and not be owned by you."
+#    echo " ... Assuming the data does not need to be downloaded.  Please use --stage 1 or more."
+#    exit 1
+#  fi
+#  if [ -e data/local/downloads/wget_$mic.sh ]; then
+#    echo "data/local/downloads/wget_$mic.sh already exists, better quit than re-download... (use --stage N)"
+#    exit 1
+#  fi
   local/ami_download.sh $mic $AMI_DIR
 fi
 

@@ -229,8 +229,8 @@ if [ $stage -le 16 ]; then
     --trainer.num-chunk-per-minibatch 128 \
     --trainer.frames-per-iter 1500000 \
     --trainer.num-epochs 6 \
-    --trainer.optimization.num-jobs-initial 2 \
-    --trainer.optimization.num-jobs-final 12 \
+    --trainer.optimization.num-jobs-initial 4 \
+    --trainer.optimization.num-jobs-final 4 \
     --trainer.optimization.initial-effective-lrate 0.001 \
     --trainer.optimization.final-effective-lrate 0.0001 \
     --trainer.optimization.proportional-shrink 10 \
