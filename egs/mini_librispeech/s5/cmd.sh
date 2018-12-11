@@ -10,6 +10,15 @@
 # conf/queue.conf in http://kaldi-asr.org/doc/queue.html for more information,
 # or search for the string 'default_config' in utils/queue.pl or utils/slurm.pl.
 
-export train_cmd="run.pl --mem 2G"
-export decode_cmd="run.pl --mem 4G"
-export mkgraph_cmd="run.pl --mem 8G"
+
+#
+#export train_cmd="run.pl --mem 2G"
+#export decode_cmd="run.pl --mem 4G"
+#export mkgraph_cmd="run.pl --mem 8G"
+
+#sample local run
+
+export train_cmd="run.pl --max-jobs-run 4"
+export decode_cmd="run.pl --max-jobs-run 4"
+export cuda_cmd="run.pl --max-jobs-run 2"
+export mkgraph_cmd="run.pl --max-jobs-run 4"
