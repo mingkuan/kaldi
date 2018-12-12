@@ -5,17 +5,18 @@
 . ./path.sh
 
 H=`pwd`  #exp home
-n=8      #parallel jobs
+n=4 # 8      #parallel jobs
 
 #corpus and trans directory
-thchs=/nfs/public/materials/data/thchs30-openslr
+thchs=./thchs-corpus     #/nfs/public/materials/data/thchs30-openslr
 
 #you can obtain the database by uncommting the following lines
-#[ -d $thchs ] || mkdir -p $thchs  || exit 1
-#echo "downloading THCHS30 at $thchs ..."
-#local/download_and_untar.sh $thchs  http://www.openslr.org/resources/18 data_thchs30  || exit 1
-#local/download_and_untar.sh $thchs  http://www.openslr.org/resources/18 resource      || exit 1
-#local/download_and_untar.sh $thchs  http://www.openslr.org/resources/18 test-noise    || exit 1
+[ -d $thchs ] || mkdir -p $thchs  || exit 1
+echo "downloading THCHS30 at $thchs ..."
+local/download_and_untar.sh $thchs  http://www.openslr.org/resources/18 data_thchs30  || exit 1
+local/download_and_untar.sh $thchs  http://www.openslr.org/resources/18 resource      || exit 1
+local/download_and_untar.sh $thchs  http://www.openslr.org/resources/18 test-noise    || exit 1
+
 
 #data preparation
 #generate text, wav.scp, utt2pk, spk2utt
